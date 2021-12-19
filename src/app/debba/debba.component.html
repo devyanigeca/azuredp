@@ -73,7 +73,7 @@
                 <ng-container *ngFor="let document of element.Documents">
                     <tr  *ngIf="element.show=='all' ? true : element.show=='edited' ? document.isChanged :  !document.isChanged  " class="mat-row">
                         <td  class="mat-cell">
-                            <i [ngClass]="document.isChanged ? 'blue-dark fa-2x' : 'gray'" class="fa fa-edit"></i>
+                            <i matTooltip="Blue when this entry is edited" [ngClass]="document.isChanged ? 'blue-dark fa-2x' : 'gray'" class="fa fa-edit"></i>
                         </td>
                         <td class="mat-cell">
                          <a mat-button target="_blank" href="{{makeSearchString(document.DocumentName)}}">{{document.DocumentName}}</a> 
