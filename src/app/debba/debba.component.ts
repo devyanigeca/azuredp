@@ -31,6 +31,7 @@ export class DebbaComponent implements OnInit {
     {value: 'PEND', viewValue: 'Pending', color: 'yellow'},
     {value: 'SUCC', viewValue: 'Success', color: 'green'},
     {value: 'FAIL', viewValue: 'Failed', color: 'red'},
+    {value: 'REVW', viewValue: 'Review', color: 'blue'},
   ];
 
   dataFolderList = new MatTableDataSource();
@@ -42,6 +43,10 @@ export class DebbaComponent implements OnInit {
     this.folder_data = this.mainservice.getTableDate();
     this.folder_data.folders.forEach(element => {
       element["isExpanded"] = false;
+      element.Documents.forEach(document => {
+        document['isChanged'] = false;
+      });
+      
     });
     this.dataFolderList.data = this.folder_data.folders;
     console.log(this.folder_data.folders);
@@ -69,7 +74,7 @@ export class DebbaComponent implements OnInit {
 
     base = base + str;
     base = base.replace(' ', '+');
-    console.log('url: ' + base);
+    // console.log('url: ' + base);
     return base;
 
   }

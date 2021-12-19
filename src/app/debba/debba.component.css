@@ -73,6 +73,7 @@ tr.folder-element-row:not(.folder-expanded-row):active {
 
 .green{
     color: #07b026 !important;
+    
 }
 .red{
     color: #e31c19 !important;
@@ -83,9 +84,32 @@ tr.folder-element-row:not(.folder-expanded-row):active {
 .black{
     color: black;
 }
+.blue{
+    color: #0d85db !important;
+}
+.gray{
+    color: #b7bcbd !important;
+}
+.blue-dark{
+    color: #065294 !important;
+}
 .black-border{
     border: 1px solid black;
 }
+.green-background{
+    background-color: #07b026 !important;
+    
+}
+.red-background{
+    background-color: #e31c19 !important;
+}
+.yellow-background{
+    background-color: #f7d31e !important;
+}
+.blue-background{
+    background-color: #0d85db !important;
+}
+
 
 .documents-form {
     min-width: 150px;

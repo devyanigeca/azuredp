@@ -76,7 +76,7 @@ var folderData = {
                         "ClientFolderId": 5,
                         "DocumentName": "hola.pdf",
                         "DMSExternalId": null,
-                        "Status": "PEND",
+                        "Status": "REVW",
                         "Notes": "in review"
                     },
                     {

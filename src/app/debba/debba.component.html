@@ -54,19 +54,23 @@
             </mat-list> -->
             <table class="mat-table" >
                 <tr class="mat-header-row">
+                  <th class="mat-header-cell">Edited?</th>
                   <th class="mat-header-cell">Document Name</th>
                   <th class="mat-header-cell">Status</th>
                   <th class="mat-header-cell">Notes</th>
                 </tr>
                 <tr *ngFor="let document of element.Documents" class="mat-row">
+                  <td  class="mat-cell">
+                      <i [ngClass]="document.isChanged ? 'blue-dark fa-2x' : 'gray'" class="fa fa-edit"></i>
+                  </td>
                   <td class="mat-cell">
                    <a mat-button target="_blank" href="{{makeSearchString(document.DocumentName)}}">{{document.DocumentName}}</a> 
                   </td>
 
-                  <td class="mat-cell">
+                  <td  class="mat-cell ">
                         <mat-form-field appearance="outline">
-                                
-                                <mat-select [ngClass]="getColor(document.Status)"  [(value)]="document.Status">
+                                <!-- [ngClass]="getColor(document.Status)" -->
+                                <mat-select (selectionChange)="document.isChanged=true;"  [(value)]="document.Status">
                                   <mat-option [ngClass]="status.color" *ngFor="let status of statuses" [value]="status.value">
                                     {{status.viewValue}}
                                   </mat-option>
@@ -80,7 +84,7 @@
                               
                                 <mat-form-field class="documents-form-full-width" appearance="outline">
                                   <!-- <mat-label>Leave a comment</mat-label> -->
-                                  <textarea [(ngModel)]="document.Notes" matInput placeholder="Ex: This is a very good document"></textarea>
+                                  <textarea (ngModelChange)="document.isChanged=true;" [(ngModel)]="document.Notes" matInput placeholder="Ex: This is a very good document"></textarea>
                                 </mat-form-field>
                         <!-- </form>     -->
                 </td>
