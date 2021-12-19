@@ -15,6 +15,7 @@ import {FormsModule, ReactiveFormsModule, FormGroup, FormControl, } from '@angul
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatIconModule} from '@angular/material';
 import {MaterialExampleModule} from '../material.module';
+import { MainService } from './main.service';
 
 
 const routes: Routes = [
@@ -41,7 +42,7 @@ const routes: Routes = [
     MatIconModule,
     MaterialExampleModule
   ],
-  providers: [],
+  providers: [MainService],
   exports: [RouterModule],
   bootstrap: [AppComponent]
 })
