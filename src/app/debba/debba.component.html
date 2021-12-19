@@ -52,6 +52,16 @@
                 <div  mat-line> <input type="text" name="" id=""> </div>
               </mat-list-item>
             </mat-list> -->
+            <div class="filters-div" >
+                <mat-radio-group [(ngModel)]="element.show" aria-label="Show only">
+                    <mat-radio-button value="all">All</mat-radio-button>
+                    <mat-radio-button value="edited">Edited</mat-radio-button>
+                    <mat-radio-button value="unedited">Unedited</mat-radio-button>
+                  </mat-radio-group>
+
+            </div>
+            
+              
             <table class="mat-table" >
                 <tr class="mat-header-row">
                   <th class="mat-header-cell">Edited?</th>
@@ -59,36 +69,39 @@
                   <th class="mat-header-cell">Status</th>
                   <th class="mat-header-cell">Notes</th>
                 </tr>
-                <tr *ngFor="let document of element.Documents" class="mat-row">
-                  <td  class="mat-cell">
-                      <i [ngClass]="document.isChanged ? 'blue-dark fa-2x' : 'gray'" class="fa fa-edit"></i>
-                  </td>
-                  <td class="mat-cell">
-                   <a mat-button target="_blank" href="{{makeSearchString(document.DocumentName)}}">{{document.DocumentName}}</a> 
-                  </td>
+                
+                <ng-container *ngFor="let document of element.Documents">
+                    <tr  *ngIf="element.show=='all' ? true : element.show=='edited' ? document.isChanged :  !document.isChanged  " class="mat-row">
+                        <td  class="mat-cell">
+                            <i [ngClass]="document.isChanged ? 'blue-dark fa-2x' : 'gray'" class="fa fa-edit"></i>
+                        </td>
+                        <td class="mat-cell">
+                         <a mat-button target="_blank" href="{{makeSearchString(document.DocumentName)}}">{{document.DocumentName}}</a> 
+                        </td>
+      
+                        <td  class="mat-cell ">
+                              <mat-form-field appearance="outline">
+                                      <!-- [ngClass]="getColor(document.Status)" -->
+                                      <mat-select (selectionChange)="document.isChanged=true;"  [(value)]="document.Status">
+                                        <mat-option [ngClass]="status.color" *ngFor="let status of statuses" [value]="status.value">
+                                          {{status.viewValue}}
+                                        </mat-option>
+                                      </mat-select>
+                             </mat-form-field>
+                                    
+                        </td>
+                        <td class="mat-cell"> 
+      
+                                      <mat-form-field class="documents-form-full-width" appearance="outline">
+                                       <textarea (ngModelChange)="document.isChanged=true;" [(ngModel)]="document.Notes" matInput placeholder="Ex: This is a very good document">
+                                        </textarea>
+                                      </mat-form-field>
+                              
+                        </td>
+                      </tr>
+                </ng-container>
 
-                  <td  class="mat-cell ">
-                        <mat-form-field appearance="outline">
-                                <!-- [ngClass]="getColor(document.Status)" -->
-                                <mat-select (selectionChange)="document.isChanged=true;"  [(value)]="document.Status">
-                                  <mat-option [ngClass]="status.color" *ngFor="let status of statuses" [value]="status.value">
-                                    {{status.viewValue}}
-                                  </mat-option>
-                                </mat-select>
-                       </mat-form-field>
-                              
-                  </td>
-                  <td class="mat-cell"> 
-                        <!-- <form class="documents-form"> -->
-                                
-                              
-                                <mat-form-field class="documents-form-full-width" appearance="outline">
-                                  <!-- <mat-label>Leave a comment</mat-label> -->
-                                  <textarea (ngModelChange)="document.isChanged=true;" [(ngModel)]="document.Notes" matInput placeholder="Ex: This is a very good document"></textarea>
-                                </mat-form-field>
-                        <!-- </form>     -->
-                </td>
-                </tr>
+               
               </table>
             </div>
           </div>

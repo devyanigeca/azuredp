@@ -43,6 +43,7 @@ export class DebbaComponent implements OnInit {
     this.folder_data = this.mainservice.getTableDate();
     this.folder_data.folders.forEach(element => {
       element["isExpanded"] = false;
+      element["show"] = 'all'
       element.Documents.forEach(document => {
         document['isChanged'] = false;
       });

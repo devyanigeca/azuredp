@@ -120,4 +120,14 @@ tr.folder-element-row:not(.folder-expanded-row):active {
   .documents-form-full-width {
     width: 100%;
   }
-  
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+
+  .filters-div{
+      /* width: 100%; */
+      padding-top: 2%;
+      padding-bottom: 2%;
+      padding-left: 5%;
+      padding-right: 5%;
+  }
