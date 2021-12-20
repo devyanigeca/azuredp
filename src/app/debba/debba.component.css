@@ -116,6 +116,9 @@ tr.folder-element-row:not(.folder-expanded-row):active {
 .blue-background{
     background-color: #0d85db !important;
 }
+.black-background{
+    background-color: black !important;
+}
 
 
 

@@ -36,6 +36,13 @@ export class DebbaComponent implements OnInit {
     {value: 'REVW', viewValue: 'Review', color: 'blue'},
   ];
 
+  val_color = {
+    'PEND': 'yellow',
+    'SUCC': 'green',
+    'FAIL': 'red',
+    'REVW': 'blue'
+  }
+
   dataFolderList = new MatTableDataSource();
   displayedFolderColumnsList: string[] = ['ClientFolderId', 'FolderName', 'FolderDescription',  'Action'];
 
@@ -61,15 +68,23 @@ export class DebbaComponent implements OnInit {
   }
 
 
+  
+
   getColor(status){
-    this.statuses.forEach(s => {
-      if (status == s.value){
-        // console.log('returning: ' + s.color);
-        return s.color;
-      }
-    });
-    console.log('returning: black' );
-    return 'black';
+
+    console.log(this.statuses);
+
+    // this.statuses.forEach(s => {
+    //   console.log('Status: ' +  status == s.value);
+    //   console.log('Status: ' + escape(status) + ' ' +  escape(s.value));
+    //   if ( status == s.value ){
+    //     // console.log('returning: ' + s.color);
+    //     return s.color;
+    //   }
+    // });
+    // // console.log('returning: black' );
+    // return 'black';
+    return this.val_color[status];
   }
 
   makeSearchString(str){

@@ -88,10 +88,10 @@
                                         </mat-option>
                                       </mat-select>
                              </mat-form-field> -->
-                            <div  class="form-group status-selection-container green-background" >
-                              
-                              <select (change)="document.isChanged=true;"  [(ngModel)]="document.Status"  class="form-control" >
-                                <option [ngClass]="status.color" *ngFor="let status of statuses" [value]="status.value" >
+                            <div  class="form-group status-selection-container" >
+                              <!-- [ngClass]="status.color" -->
+                              <select (change)="document.isChanged=true;"  [(ngModel)]="document.Status"  class="form-control" [ngClass]="getColor(document.Status) + '-background'"  >
+                                <option  *ngFor="let status of statuses" [value]="status.value" >
                                   {{status.viewValue}}
                                 </option>
                                 
