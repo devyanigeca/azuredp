@@ -78,16 +78,25 @@
                         <td class="mat-cell">
                          <a mat-button target="_blank" href="{{makeSearchString(document.DocumentName)}}">{{document.DocumentName}}</a> 
                         </td>
-      
+      <!-- [ngClass]="getColor(document.Status)" -->
                         <td  class="mat-cell ">
-                              <mat-form-field appearance="outline">
-                                      <!-- [ngClass]="getColor(document.Status)" -->
+                              <!-- <mat-form-field appearance="fill" class="mySelectForm">
+                                      
                                       <mat-select (selectionChange)="document.isChanged=true;"  [(value)]="document.Status">
                                         <mat-option [ngClass]="status.color" *ngFor="let status of statuses" [value]="status.value">
-                                          {{status.viewValue}}
+                                           {{status.viewValue}}
                                         </mat-option>
                                       </mat-select>
-                             </mat-form-field>
+                             </mat-form-field> -->
+                            <div  class="form-group status-selection-container green-background" >
+                              
+                              <select (change)="document.isChanged=true;"  [(ngModel)]="document.Status"  class="form-control" >
+                                <option [ngClass]="status.color" *ngFor="let status of statuses" [value]="status.value" >
+                                  {{status.viewValue}}
+                                </option>
+                                
+                              </select>
+                            </div>
                                     
                         </td>
                         <td class="mat-cell"> 
@@ -116,7 +125,7 @@
   
       <!-- Extra row to show detail content column -->
       
-      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="folder-detail-row debug"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="folder-detail-row "></tr>
   
     </table>
     <!-- PS: iloveu  -->

@@ -26,6 +26,13 @@
     border-radius: 8px;
 }
 
+.status-selection-container{
+    margin-right: 25%;
+}
+.bootstrap-select.btn-group .dropdown-menu {
+    color: whitesmoke !important;
+    background: #bf5279 !important;
+}
 
 /* ########### END KEY STYLING ############ */
 
@@ -71,7 +78,7 @@ tr.folder-element-row:not(.folder-expanded-row):active {
     border: 1px solid red;
 }
 
-.green{
+::ng-deep .green{
     color: #07b026 !important;
     
 }
@@ -111,6 +118,7 @@ tr.folder-element-row:not(.folder-expanded-row):active {
 }
 
 
+
 .documents-form {
     min-width: 150px;
     max-width: 500px;
@@ -131,3 +139,4 @@ tr.folder-element-row:not(.folder-expanded-row):active {
       padding-left: 5%;
       padding-right: 5%;
   }
+

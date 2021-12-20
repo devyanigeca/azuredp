@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { MainService } from '../main.service';
+import {ViewEncapsulation } from '@angular/core';
+
 
 interface StatusOptions {
   value: string;
