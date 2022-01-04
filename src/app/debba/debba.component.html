@@ -36,6 +36,12 @@
           </a>
         </td>
       </ng-container>
+
+      <ng-container matColumnDef="Count">
+        <th class="main-table-header" mat-header-cell *matHeaderCellDef> Count </th>
+        <td mat-cell *matCellDef="let element"> Pend: {{  getCount(element, 'PEND') }} /  Total: {{ element.Documents.length }} </td>
+      </ng-container>
+  
   
   
       <!-- Template for details row -->

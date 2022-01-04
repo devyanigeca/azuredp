@@ -20,7 +20,7 @@ import { MainService } from './main.service';
 
 const routes: Routes = [
 
-  { path: 'debba', component: DebbaComponent },
+  { path: '', component: DebbaComponent },
 ]; // sets up routes constant where you define your routes
 
 @NgModule({
@@ -40,7 +40,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     MatIconModule,
-    MaterialExampleModule
+    MaterialExampleModule,
+    
   ],
   providers: [MainService],
   exports: [RouterModule],

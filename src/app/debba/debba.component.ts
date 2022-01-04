@@ -44,7 +44,7 @@ export class DebbaComponent implements OnInit {
   }
 
   dataFolderList = new MatTableDataSource();
-  displayedFolderColumnsList: string[] = ['ClientFolderId', 'FolderName', 'FolderDescription',  'Action'];
+  displayedFolderColumnsList: string[] = ['ClientFolderId', 'FolderName', 'FolderDescription',  'Action', 'Count'];
 
   constructor(private mainservice: MainService) { }
 
@@ -101,5 +101,9 @@ export class DebbaComponent implements OnInit {
   //   const filterValue = (event.target as HTMLInputElement).value;
   //   this.dataSource.filter = filterValue.trim().toLowerCase();
   // }
+
+  getCount( element, status ){
+    return element.Documents.filter(s => s.Status == status).length ;
+  }
 
 }
